@@ -112,9 +112,7 @@ public class Main{
                         break;
                     case 7:
                         System.out.println("enter length of the array");
-                        length = sc.nextInt();
-                        System.out.println("enter sequence");
-                        numbers = new int[length];
+                        n=sc.nextInt();
                         for (int i = 0; i < length; i++) {
                             numbers[i] = sc.nextInt();
 
@@ -157,7 +155,7 @@ public class Main{
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        int gcd = g(a, b);
+                        int gcd = greatestCommonDivisor(a, b);
                         System.out.println("GCD of 2 numbers" + gcd);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
@@ -236,12 +234,18 @@ public class Main{
         System.out.print(value+" ");
     }
 
-    static boolean isDigit(String s){
-        if(s.isEmpty()) return true;
-        int c=s.charAt(0);
-        if(48>c||57<c) return false;
+    static boolean isDigit(String s) {
+        if (s.isEmpty()) return true;
+        int c = s.charAt(0);
+        if (48 > c || 57 < c) return false;
         return isDigit(s.substring(1));
     }
+    static int binomialCoefficient(int n,int k){
+        if(k==0 || k==n) return 1;
+        return binomialCoefficient(n-1,k-1)+binomialCoefficient(n-1,k);
+    }
+
+
 
 
 
