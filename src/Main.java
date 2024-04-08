@@ -209,6 +209,36 @@ public class Main{
         }
         return n*factorialOfNumbers(n-1);
     }
+    static int fibonacci(int n){
+        if (n==0){
+            return 0;
+        }
+        else if (n==1){
+            return 1;
+        }
+        else{
+            return fibonacci(n-1)+fibonacci(n-2);
+        }
+    }
+    static int fibonacci(int n){
+        if (n==0){
+            return 0;
+        }
+        else if (n==1){
+            return 1;
+        }
+        else{
+            return fibonacci(n-1)+fibonacci(n-2);
+        }
+    }
+
+    static int degreeOfA(int a,int n) {
+        if (n == 1) {
+            return a;
+        }
+        return a * degreeOfA(a, n - 1);
+    }
+
 
 
 
