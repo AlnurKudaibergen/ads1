@@ -244,7 +244,12 @@ public class Main{
         if(k==0 || k==n) return 1;
         return binomialCoefficient(n-1,k-1)+binomialCoefficient(n-1,k);
     }
-
+    static int greatestCommonDivisor(int a,int b){
+        if(a == 0) return b;
+        if(b == 0) return a;
+        return greatestCommonDivisor(b, a % b);
+    }
+}
 
 
 
