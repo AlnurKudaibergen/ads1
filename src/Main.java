@@ -188,8 +188,19 @@ public class Main{
         }
         return ((double)summa/arr.length);
 }
-}
+
+    static boolean isPrime(int n){
+        if (n==0||n==1||n<0){
+            System.out.println("no");
+        }
+        boolean prime=true;
+        for (int i = 2; i <n ; i++) {
+            if (n % i == 0) {
+                prime = false;
+                break;
+            }}
+            return prime;
 
 
-
+    }
 
