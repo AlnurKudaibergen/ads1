@@ -171,12 +171,25 @@ public class Main{
             }
         }
     }
-    static int minimumValue(int[] arr){
-        int min=arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]<min){
-                min=arr[i];
+    static int minimumValue(int[] arr) {
+        int min = arr[0];
+        for (int j : arr) {
+            if (j < min) {
+                min = j;
             }
         }
         return min;
+    }
+
+    static double averageOfArray(int[] arr){
+        int summa=0;
+        for (int i = 0; i < arr.length; i++) {
+            summa+=i;
+        }
+        return ((double)summa/arr.length);
+}
+}
+
+
+
 
