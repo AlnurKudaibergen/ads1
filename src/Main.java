@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main{
     static Scanner sc=new Scanner(System.in);
     public static void main(String[] args) {
-        int a, b, n, k, length, num;
+        int a, b, n, k, length;
         String s;
         int[] numbers;
         double startTime, endTime, duration;
@@ -61,17 +61,17 @@ public class Main{
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        int average = averageOfArray(numbers);
-                        System.out.println("The minimum value in the given array is:" + minimum);
+                        double average = averageOfArray(numbers);
+                        System.out.println("The average of the iven array is"+average);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
                     case 3:
                         System.out.println("enter the number:");
-                        num = sc.nextInt();
-                        if (isPrime(num)) {
-                            System.out.println(num + "is prime.");
+                        n = sc.nextInt();
+                        if (isPrime(n)) {
+                            System.out.println(n + "is prime.");
                         } else {
-                            System.out.println(num + "is composite.");
+                            System.out.println(n + "is composite.");
                         }
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
@@ -80,21 +80,21 @@ public class Main{
                         break;
                     case 4:
                         System.out.println("enter the number");
-                        num = sc.nextInt();
+                        n = sc.nextInt();
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        int factorial = factorialOfNumbers(num);
+                        int factorial = factorialOfNumbers(n);
                         System.out.println("The factorial of the given number is" + factorial);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
                     case 5:
                         System.out.println("enter the number");
-                        num = sc.nextInt();
+                        n = sc.nextInt();
+                        int fibo = fibonacci(n);
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        int fibo = fibonacci(num);
                         System.out.println("The n-th element in Fibonacci sequence" + fibo);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
@@ -147,7 +147,7 @@ public class Main{
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        System.out.println("Binomial coefficient for the given numbers" + binom);
+                        System.out.println("Binomial coefficient for the given numbers" + binomial);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
                     case 10:
@@ -157,7 +157,7 @@ public class Main{
                         startTime = System.nanoTime();
                         endTime = System.nanoTime();
                         duration = (endTime - startTime) / 1000000;
-                        int gcd = gcdOfNumbers(a, b);
+                        int gcd = g(a, b);
                         System.out.println("GCD of 2 numbers" + gcd);
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
@@ -220,17 +220,6 @@ public class Main{
             return fibonacci(n-1)+fibonacci(n-2);
         }
     }
-    static int fibonacci(int n){
-        if (n==0){
-            return 0;
-        }
-        else if (n==1){
-            return 1;
-        }
-        else{
-            return fibonacci(n-1)+fibonacci(n-2);
-        }
-    }
 
     static int degreeOfA(int a,int n) {
         if (n == 1) {
@@ -238,6 +227,23 @@ public class Main{
         }
         return a * degreeOfA(a, n - 1);
     }
+    static void reverseOfArray(int num){
+        if (num==0){
+            return ;
+        }
+        int value= sc.nextInt();
+        reverseOfArray(num-1);
+        System.out.print(value+" ");
+    }
+
+    static boolean isDigit(String s){
+        if(s.isEmpty()) return true;
+        int c=s.charAt(0);
+        if(48>c||57<c) return false;
+        return isDigit(s.substring(1));
+    }
+
+
 
 
 
