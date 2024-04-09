@@ -78,6 +78,7 @@ public class Main{
                         duration = (endTime - startTime) / 1000000;
                         System.out.println("Time taken for the task:" + duration + "milliseconds");
                         break;
+
                     case 4:
                         System.out.println("enter the number");
                         n = sc.nextInt();
@@ -169,6 +170,14 @@ public class Main{
             }
         }
     }
+
+    /**
+     * This method finds the minimum element in a given array using the "for" loop.
+     * Time complexity: O(n), where n is the length of the array.
+     * The for loop goes through all the elements of the array and calculates the result.
+     * @param arr
+     * @return
+     */
     static int minimumValue(int[] arr) {
         int min = arr[0];
         for (int j : arr) {
@@ -179,6 +188,15 @@ public class Main{
         return min;
     }
 
+    /**
+     * This method calculates the average value of the elements of a given array
+     * Time complexity: O(n), where n is the length of the array.
+     * The For loop iterates over all elements of the array, resulting in
+     * In linear time complexity.
+     * @param n The given number of elements in array.
+     * @param arr The given array of integer numbers of size n.
+     * @return The average of numbers of array.
+     */
     static double averageOfArray(int[] arr){
         int summa=0;
         for (int i = 0; i < arr.length; i++) {
@@ -186,7 +204,18 @@ public class Main{
         }
         return ((double)summa/arr.length);
 }
-
+    /**
+     * This function determines whether the given number is prime or composite.
+     * It employs a for loop.
+     * Time complexity: O(sqrt(n)), where n is the given number.
+     * The for loop iterates through numbers from 2 to sqrt(n),
+     * resulting in a square root time complexity.
+     *
+     * @param n The given number n, for which the function checks if
+     * it is prime.
+     * @return true if the given number is prime, or false if the given
+     * number is composite.
+     */
     static boolean isPrime(int n){
         if (n==0||n==1||n<0){
             System.out.println("no");
@@ -201,12 +230,34 @@ public class Main{
 
 
     }
+    /**
+     * This function computes the factorial of a specified number.
+     * It employs a recursive technique.
+     * Time complexity: O(n), where n is the given number.
+     * The recursive algorithm traverses through all numbers from n
+     * to 1, leading to linear time complexity.
+     *
+     * @param n The number for which the factorial is computed.
+     * @return The factorial value of the specified number.
+     */
     static int factorialOfNumbers(int n){
         if (n==0||n==1){
             return 1;
         }
         return n*factorialOfNumbers(n-1);
     }
+
+    /**
+     * This function computes the n-th element in the Fibonacci sequence.
+     * It utilizes a recursive strategy.
+     * Time complexity: O(2^n), where n is the given number.
+     * The recursive algorithm invokes itself for each non-base case,
+     * leading to exponential time complexity.
+     *
+     * @param n The index of the number in the Fibonacci sequence
+     * to be determined.
+     * @return The n-th element in the Fibonacci sequence.
+     */
     static int fibonacci(int n){
         if (n==0){
             return 0;
@@ -219,12 +270,36 @@ public class Main{
         }
     }
 
+    /**
+     * This function computes the result of raising a number to a power.
+     * It employs a recursive approach.
+     * Time complexity: O(n), where n is the exponent.
+     * The recursive algorithm involves multiplying the base 'a' by itself
+     * 'n' times, leading to linear time complexity.
+     *
+     * @param a The base number.
+     * @param n The exponent.
+     * @return The value of 'a' raised to the power of 'n'.
+     */
     static int degreeOfA(int a,int n) {
         if (n == 1) {
             return a;
         }
         return a * degreeOfA(a, n - 1);
     }
+
+    /**
+     * This function reverses a provided array.
+     * It utilizes a recursive approach.
+     * Time complexity: O(n), where n is the length of the array.
+     * The recursive algorithm swaps the elements at the beginning
+     * and end of the array, and then recursively calls itself on
+     * the remaining portion of the array. This results in linear time complexity.
+     *
+     * @param n The number of elements in the array.
+     * @param arr The array of integer numbers to be reversed.
+     * @return The given array in reversed order.
+     */
     static void reverseOfArray(int[] arr,int n){
         if (n == 0) {
             System.out.println();
@@ -234,16 +309,55 @@ public class Main{
         reverseOfArray(arr, n - 1);
     }
 
+    /**
+     * This function verifies whether a given string consists solely of digits.
+     * It employs a recursive technique.
+     * Time complexity: O(n), where n is the length of the string.
+     * The recursive algorithm examines whether the first character is a digit,
+     * and then recursively calls itself for the remaining characters in the string.
+     * This leads to linear time complexity.
+     *
+     * @param s The string to be examined.
+     * @return true if the given string contains only numeric characters,
+     * or false otherwise.
+     */
     static boolean isDigit(String s) {
         if (s.isEmpty()) return true;
         int c = s.charAt(0);
         if (48 > c || 57 < c) return false;
         return isDigit(s.substring(1));
     }
+    /**
+     * This function calculates the binomial coefficient C(n, k).
+     * It utilizes a recursive approach based on the identity
+     * C(n, k) = C(n - 1, k - 1) + C(n - 1, k).
+     * Time complexity: O(2^n), where n is the first parameter.
+     * This arises because each call to this function results in two
+     * recursive calls unless it reaches the base case.
+     * The recursive algorithm computes the binomial coefficient
+     * by decomposing it into two smaller coefficients, leading
+     * to exponential time complexity.
+     *
+     * @param n The first parameter of the binomial coefficient to be calculated.
+     * @param k The second parameter of the binomial coefficient to be calculated.
+     * @return The binomial coefficient of numbers n and k.
+     */
     static int binomialCoefficient(int n,int k){
         if(k==0 || k==n) return 1;
         return binomialCoefficient(n-1,k-1)+binomialCoefficient(n-1,k);
     }
+
+    /**
+     * This function computes the greatest common divisor (GCD) of two numbers.
+     * It employs a recursive strategy.
+     * Time complexity: O(log(min(a,b))), where 'a' and 'b'
+     * are the input numbers. With each recursive call, the
+     * problem size decreases geometrically.
+     *
+     * @param a The first number for GCD calculation.
+     * @param b The second number for GCD calculation.
+     * @return The greatest common divisor (GCD) of 'a' and 'b'.
+     */
     static int greatestCommonDivisor(int a,int b){
         if(a == 0) return b;
         if(b == 0) return a;
